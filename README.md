@@ -54,12 +54,11 @@ This project includes a `docs` folder with more details on:
 1.  [How to Use](docs/how-to-use.md)
 1.  [API Reference](docs/api-reference.md)
 
-## Other frameworks plugin
-Tawk team supports the top JS frameworks:
+## Other JS frameworks plugin
 - [Vue Js](https://github.com/tawk/tawk-messenger-vue)
 - [React Js](https://github.com/tawk/tawk-messenger-react)
 - [Angular Js](https://github.com/tawk/tawk-messenger-angular)
-- [Ember Js]()
+- Ember Js
 
 ## Frequently Asked Questions
 
