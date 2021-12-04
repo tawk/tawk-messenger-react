@@ -12,10 +12,17 @@
     Tawk messenger for React
 </h1>
 
-> A plugin for React js framework of [tawk.to](https://www.tawk.to/) messenger.
+> A plugin for React js framework of [tawk.to](https://tawk.to/) messenger.
 
-## Getting Started
-The plugin is available in node package manager.
+## Features
+* Using Hooks
+* Documented and Self explanaining methods
+* Small size without any external libraries
+* All Javascript API are available
+* Maintained by [tawk.to](https://www.tawk.to/) team.
+
+## Installation
+The plugin is available in node and yarn package managers.
 ```bash
 # Node
 npm install tawk-messenger-react
@@ -24,21 +31,39 @@ npm install tawk-messenger-react
 yarn add tawk-messenger-react
 ```
 
-## Documentation
+## Quickstart
+Import the **tawk-messenger-react** in your main component, The **propertyId** and **widgetId** 
+will be found on your tawk dashboard **Administration > Chat Widget**. Using the API will need
+to use the **useRef** to be able call the expose functions from the **tawk-messenger-react**.
+```js
+import TawkMessengerReact from 'tawk-messenger-react';
 
+function App() {
+    return (
+        <div className="App">
+            <TawkMessengerReact
+                propertyId="property_id"
+                widgetId="default"/>
+        </div>
+    );
+}
+```
+
+## Documentation
 This project includes a `docs` folder with more details on:
 1.  [How to Use](docs/how-to-use.md)
 1.  [API Reference](docs/api-reference.md)
+
+## Other frameworks plugin
+Tawk team supports the top JS frameworks:
+- [Vue Js](https://github.com/tawk/tawk-messenger-vue)
+- [React Js](https://github.com/tawk/tawk-messenger-react)
+- [Angular Js](https://github.com/tawk/tawk-messenger-angular)
+- [Ember Js]()
 
 ## Frequently Asked Questions
 
 **Where you can approach us for suggestion or bug report?**
 
-You can mention us on [Twitter](https://twitter.com/tawktotawk) or in our [Website](https://www.tawk.to/) just message us.
-
-## Maintained by
-<table>
-    <tr>
-        <td align="center"><a href="https://github.com/tawk"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/9743939?s=200&v=4" style="max-width: 100%;"><br><sub><b>Tawk Developers</b></sub></a></td>
-    </tr>
-</table>
+You can mention us on [Twitter](https://twitter.com/tawktotawk) or in our
+[Website](https://www.tawk.to/) just message us.
