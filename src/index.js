@@ -1,16 +1,34 @@
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 
+// Helper
+import { isValidString } from './utils/helper';
+import { loadScript } from './utils/widget';
+
 const TawkMessenger = forwardRef((props, ref) => {
 	useEffect(() => {
 		load();
 	});
 
 	const load = () => {
+		if (!isValidString(String, props.propertyId)) {
+			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'propertyId\' property in the plugin.');
+			return;
+		}
+	
+		if (!isValidString(String, props.widgetId)) {
+			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'widgetId\' property in the plugin.');
+			return;
+		}
+
 		if (!window || !document) {
 			return;
 		}
 
+		init();
+	}
+
+	const init = () => {
 		/**
 		 * Set placeholder
 		 */
@@ -19,32 +37,20 @@ const TawkMessenger = forwardRef((props, ref) => {
 		/**
 		 * Inject the Tawk script
 		 */
-		loadScript();
+		loadScript({
+			propertyId : props.propertyId,
+			widgetId : props.widgetId
+		});
 
-		init();
-	}
-
-	const init = () => {
+		/**
+		 * Set custom style
+		 */
 		if (props.customStyle && typeof props.customStyle === 'object') {
 			window.Tawk_API.customStyle = props.customStyle;
 		}
 
 		mapCallbacks();
 	}
-
-	const loadScript = () => {
-		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-
-		const script = document.createElement('script');
-		script.async = true;
-		script.src = `https://embed.talk.lv/${props.propertyId}/${props.widgetId}`;
-		script.charset = 'UTF-8';
-		script.setAttribute('crossorigin', '*');
-
-		const firstScript = document.getElementsByTagName('script')[0];
-		firstScript.parentNode.insertBefore(script, firstScript);
-	}
-
 	
 	useImperativeHandle(ref, () => ({
 		/**
