@@ -236,7 +236,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 
 
 TawkMessenger.defaultProps = {
-	customStyle : {},
+	customStyle : null,
 	onLoad : () => {},
 	onStatusChange : () => {},
 	onBeforeLoad : () => {},
