@@ -1,18 +1,12 @@
-<p align="center">
-    <a href="https://www.tawk.to/"
-    target="_blank"
-    rel="noopener noreferrer">
-        <img width="120"
-            src="https://www.tawk.to/wp-content/uploads/2020/04/tawk-sitelogo.png"
-            alt="Tawk logo">
-    </a>
-</p>
-
 <h1 align="center">
-    Tawk messenger for React
+    Notice: Still Under Development
 </h1>
 
-> A plugin for React js framework of [tawk.to](https://tawk.to/) messenger.
+<br/><br/>
+
+# ![tawk-messenger-react-banner](/images/banner.jpg)
+
+<br/>
 
 ## Features
 * Using Hooks
