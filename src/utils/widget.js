@@ -1,15 +1,27 @@
-/* eslint-disable no-unused-vars */
+/* global Tawk_API */
 /* eslint-disable no-use-before-define */
 
 /**
  * @param {Object} - Tawk widget required properties 
  */
-const loadScript = ({propertyId, widgetId}) => {
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+const loadScript = ({propertyId = '', widgetId = '', embedId = ''}) => {
+    if (embedId.length) {
+        /**
+		 * If the element with embedId as id we will create a new clement
+		 */
+		if (!document.getElementById(embedId)) {
+			const element = document.createElement('div');
+			element.id = embedId;
+	
+			document.body.appendChild(element);
+		}
+
+		Tawk_API.embedded = embedId;
+    }
 
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://embed.talk.lv/${propertyId}/${widgetId}`;
+    script.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
     script.charset = 'UTF-8';
     script.setAttribute('crossorigin', '*');
 
