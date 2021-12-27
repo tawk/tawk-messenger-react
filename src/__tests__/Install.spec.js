@@ -47,7 +47,6 @@ describe('Install tawk-messenger-react', () => {
 
 			/**
 			 * 1st error - PropType 'widgetId' is required
-			 * 2nd error - Custom log from load()
 			 */
 			expect(console.error).toHaveBeenCalledTimes(1);
 		});
@@ -65,36 +64,6 @@ describe('Install tawk-messenger-react', () => {
 			 * 1st error - PropType 'widgetId' is required
 			 */
 			expect(console.error).toHaveBeenCalledTimes(1);
-		});
-	});
-
-	
-	describe('Initialize plugin', () => {
-		it('should have global variable \'Tawk_API\'', () => {
-			act(() => {
-				render(
-					<TawkMessengerReact
-						propertyId="property_id"
-						widgetId="widget_id"/>,
-					container
-				);
-			});
-			
-			expect(typeof window.Tawk_API === 'object').toBe(true);
-		});
-
-		it('should set \'customStyle\' property in \'Tawk_API\'', () => {
-			act(() => {
-				render(
-					<TawkMessengerReact
-						propertyId="property_id"
-						widgetId="widget_id"
-						customStyle={{}}/>,
-					container
-				);
-			});
-			
-			expect(typeof window.Tawk_API.customStyle === 'object').toBe(true);
 		});
 	});
 });
