@@ -25,22 +25,26 @@
   },
   "license": "Apache-2.0",
   "author": "Jerald Austero <jerald.austero@tawk.to> (https://www.tawk.to)",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "main": "./src/index.js",
   "scripts": {
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3"
+    "lint": "eslint src/**/*.js"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-jest": "^24.7.0",
+    "eslint-plugin-react": "^7.28.0",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3"
   },
   "eslintConfig": {
     "extends": [
