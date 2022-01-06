@@ -1,4 +1,3 @@
-/* global Tawk_API */
 /* eslint-disable no-use-before-define */
 
 /**
@@ -16,7 +15,7 @@ const loadScript = ({propertyId = '', widgetId = '', embedId = ''}) => {
 			document.body.appendChild(element);
 		}
 
-		Tawk_API.embedded = embedId;
+		window.Tawk_API.embedded = embedId;
     }
 
     const script = document.createElement('script');
