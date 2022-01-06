@@ -1,6 +1,8 @@
+/* global document */
+
 // Dependecy
 import { unmountComponentAtNode } from 'react-dom';
-import { render, act } from '@testing-library/react'
+import { render, act } from '@testing-library/react';
 
 // Plugin
 import TawkMessengerReact from '../index';
@@ -14,7 +16,7 @@ describe('Install tawk-messenger-react', () => {
 	beforeEach(() => {
 		container = document.createElement('script');
 		document.body.appendChild(container);
-	})
+	});
 
 	afterEach(() => {
 		unmountComponentAtNode(container);
@@ -26,7 +28,7 @@ describe('Install tawk-messenger-react', () => {
 		it('when propertyId and widgetId are not defined', () => {
 			act(() => {
 				render(<TawkMessengerReact/>, container);
-			})
+			});
 
 			/**
 			 * 1st error - PropType 'propertyId' is required
@@ -43,7 +45,7 @@ describe('Install tawk-messenger-react', () => {
 						propertyId="property_Id"/>,
 					container
 				);
-			})
+			});
 
 			/**
 			 * 1st error - PropType 'widgetId' is required
