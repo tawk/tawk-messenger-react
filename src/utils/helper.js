@@ -1,14 +1,13 @@
 /**
- * @param {String} type - Constructor name
- * @param {String} value - Object to test
+ * @param {String} value - A data that needs to be validated
  * @returns - Boolean
  */
-const isValidString = (type, value) => {
+const isValidString = (value) => {
     if (!value || value.length === 0) {
         return false;
     }
 
-    return value instanceof type || (value !== null && value !== undefined && value.constructor === type);
+    return value !== null && value !== undefined && typeof value === 'string';
 }
 
 
