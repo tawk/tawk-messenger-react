@@ -1,23 +1,48 @@
 {
   "name": "tawk-messenger-react",
   "version": "0.1.0",
-  "description": "React plugin for Tawk messenger",
-  "main": "./src/index.js",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
+  "description": "Official React plugin for Tawk messenger",
+  "keywords": [
+    "react",
+    "reactjs",
+    "next",
+    "react-plugin",
+    "tawk",
+    "next-plugin",
+    "tawkto",
+    "react-tawk",
+    "next-tawk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tawk/tawk-messenger-react.git",
+    "repository": "tawk/tawk-messenger-react"
   },
+  "homepage": "https://github.com/tawk/tawk-messenger-react#readme",
+  "bugs": {
+    "url": "https://github.com/tawk/tawk-messenger-react/issues",
+    "email": "support@tawk.to"
+  },
+  "license": "Apache-2.0",
+  "author": "Jerald Austero <jerald.austero@tawk.to> (https://www.tawk.to)",
+  "files": ["src"],
+  "main": "./src/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "web-vitals": "^1.1.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
   "eslintConfig": {
     "extends": [
