@@ -4,14 +4,14 @@
  * @returns - Boolean
  */
 const isValidString = (type, value) => {
-    if (!value || value.length === 0) {
-        return false;
-    }
+	if (!value || value.length === 0) {
+		return false;
+	}
 
-    return value instanceof type || (value !== null && value !== undefined && value.constructor === type);
-}
+	return value instanceof type || (value !== null && value !== undefined && value.constructor === type);
+};
 
 
 export {
-    isValidString
-}
+	isValidString
+};
