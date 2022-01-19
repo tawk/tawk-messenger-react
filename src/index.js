@@ -1,3 +1,6 @@
+/* global window, document */
+
+// Dependencies
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 
@@ -26,7 +29,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 		}
 
 		init();
-	}
+	};
 
 	const init = () => {
 		/**
@@ -50,7 +53,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 		}
 
 		mapCallbacks();
-	}
+	};
 	
 	useImperativeHandle(ref, () => ({
 		/**
@@ -229,11 +232,12 @@ const TawkMessenger = forwardRef((props, ref) => {
 		window.addEventListener('tawkTagsUpdated', (data) => {
 			props.onTagsUpdated(data.detail);
 		});
-	}
+	};
 
 	return null;
 });
 
+TawkMessenger.displayName = 'TawkMessenger';
 
 TawkMessenger.defaultProps = {
 	customStyle : null,
@@ -256,7 +260,7 @@ TawkMessenger.defaultProps = {
 	onVisitorNameChanged : () => {},
 	onFileUpload : () => {},
 	onTagsUpdated : () => {}
-}
+};
 
 
 TawkMessenger.propTypes = {
