@@ -14,12 +14,12 @@ const TawkMessenger = forwardRef((props, ref) => {
 	});
 
 	const load = () => {
-		if (!isValidString(String, props.propertyId)) {
+		if (!isValidString(props.propertyId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'propertyId\' property in the plugin.');
 			return;
 		}
 	
-		if (!isValidString(String, props.widgetId)) {
+		if (!isValidString(props.widgetId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'widgetId\' property in the plugin.');
 			return;
 		}
@@ -36,13 +36,15 @@ const TawkMessenger = forwardRef((props, ref) => {
 		 * Set placeholder
 		 */
 		window.Tawk_API = window.Tawk_API || {};
+		window.Tawk_LoadStart = new Date();
 
 		/**
 		 * Inject the Tawk script
 		 */
 		loadScript({
 			propertyId : props.propertyId,
-			widgetId : props.widgetId
+			widgetId : props.widgetId,
+			embedId : props.embedId
 		});
 
 		/**
