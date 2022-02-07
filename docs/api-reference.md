@@ -47,6 +47,7 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 - [addTags](#addtags)
 - [removeTags](#removetags)
 - [secureMode](#securemode)
+- [switchWidget](#switchwidget)
 - [customStyle](#customstyle)
 
 ## onLoad
@@ -1062,6 +1063,34 @@ tawkMessengerRef.current.visitor({
     email : 'email@email.com'
     hash : '<calculate-hash>'
 });
+```
+
+## switchWidget
+Disconnect the current widget connection and switch to another widget.
+
+```js
+tawkMessengerRef.current.switchWidget(options);
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        tawkMessengerRef.current.switchWidget({
+            propertyId ; 'property_id',
+            widgetId : 'widget_id'
+        });
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
 ```
 
 ## customstyle
