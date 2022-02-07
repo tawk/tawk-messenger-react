@@ -1,3 +1,6 @@
+/* global window, document */
+
+// Dependencies
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,12 +14,12 @@ const TawkMessenger = forwardRef((props, ref) => {
 	});
 
 	const load = () => {
-		if (!isValidString(String, props.propertyId)) {
+		if (!isValidString(props.propertyId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'propertyId\' property in the plugin.');
 			return;
 		}
 	
-		if (!isValidString(String, props.widgetId)) {
+		if (!isValidString(props.widgetId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'widgetId\' property in the plugin.');
 			return;
 		}
@@ -26,20 +29,22 @@ const TawkMessenger = forwardRef((props, ref) => {
 		}
 
 		init();
-	}
+	};
 
 	const init = () => {
 		/**
 		 * Set placeholder
 		 */
 		window.Tawk_API = window.Tawk_API || {};
+		window.Tawk_LoadStart = new Date();
 
 		/**
 		 * Inject the Tawk script
 		 */
 		loadScript({
 			propertyId : props.propertyId,
-			widgetId : props.widgetId
+			widgetId : props.widgetId,
+			embedId : props.embedId
 		});
 
 		/**
@@ -50,7 +55,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 		}
 
 		mapCallbacks();
-	}
+	};
 	
 	useImperativeHandle(ref, () => ({
 		/**
@@ -246,6 +251,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 	return null;
 });
 
+TawkMessenger.displayName = 'TawkMessenger';
 
 TawkMessenger.defaultProps = {
 	customStyle : null,
@@ -267,8 +273,9 @@ TawkMessenger.defaultProps = {
 	onChatSatisfaction : () => {},
 	onVisitorNameChanged : () => {},
 	onFileUpload : () => {},
-	onTagsUpdated : () => {}
-}
+	onTagsUpdated : () => {},
+	onUnreadCountChanged : () => {}
+};
 
 
 TawkMessenger.propTypes = {
@@ -304,7 +311,8 @@ TawkMessenger.propTypes = {
 	onChatSatisfaction : PropTypes.func,
 	onVisitorNameChanged : PropTypes.func,
 	onFileUpload : PropTypes.func,
-	onTagsUpdated : PropTypes.func
+	onTagsUpdated : PropTypes.func,
+	onUnreadCountChanged : PropTypes.func
 };
 
 

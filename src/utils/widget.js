@@ -1,10 +1,24 @@
-/* global document */
+/* global document, window */
 /* eslint-disable no-use-before-define */
 
 /**
  * @param {Object} - Tawk widget required properties 
  */
-const loadScript = ({propertyId, widgetId}) => {
+const loadScript = ({propertyId = '', widgetId = '', embedId = ''}) => {
+	if (embedId.length) {
+		/**
+		 * If the element with embedId as id we will create a new clement
+		 */
+		if (!document.getElementById(embedId)) {
+			const element = document.createElement('div');
+			element.id = embedId;
+	
+			document.body.appendChild(element);
+		}
+
+		window.Tawk_API.embedded = embedId;
+	}
+
 	const script = document.createElement('script');
 	script.async = true;
 	script.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
