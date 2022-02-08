@@ -16,7 +16,7 @@
 <br/>
 
 ## Installation
-The plugins are available in node and yarn package managers.
+The plugins is available from node and yarn package managers.
 ```bash
 # Node
 npm install @tawk.to/tawk-messenger-react
@@ -28,13 +28,12 @@ yarn add @tawk.to/tawk-messenger-react
 <br/>
 
 ## Quickstart
-Import the **tawk-messenger-vue** in your main component. The **propertyId** and **widgetId** will
+Import **tawk-messenger-react** into the App JavaScript file of your **src/** folder. The **propertyId** and **widgetId** will
 be found on your tawk Dashboard.
 
 Log in to your account and go to **Administration > Channels > Chat Widget**.
 
-Using the API will need
-to use the **useRef** to access the object functions from the **tawk-messenger-react** component.
+When using the API, you will need to use the **useRef** to access the object functions from the **tawk-messenger-react** component.
 
 ```js
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
