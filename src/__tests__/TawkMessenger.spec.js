@@ -102,6 +102,8 @@ describe('Tawk-messenger plugin', () => {
 			expect(typeof tawkMessengerRef.current.isChatOngoing === 'function').toBe(true);
 			expect(typeof tawkMessengerRef.current.isVisitorEngaged === 'function').toBe(true);
 			expect(typeof tawkMessengerRef.current.onLoaded === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.onBeforeLoaded === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.widgetPosition === 'function').toBe(true);
 		});
 
 		it('should set the event functions', () => {
@@ -133,6 +135,7 @@ describe('Tawk-messenger plugin', () => {
 			expect(window.addEventListener).toHaveBeenCalledWith('tawkVisitorNameChanged', expect.any(Function));
 			expect(window.addEventListener).toHaveBeenCalledWith('tawkFileUpload', expect.any(Function));
 			expect(window.addEventListener).toHaveBeenCalledWith('tawkTagsUpdated', expect.any(Function));
+			expect(window.addEventListener).toHaveBeenCalledWith('tawkUnreadCountChanged', expect.any(Function));
 		});
 
 		it('should set the setter functions', () => {

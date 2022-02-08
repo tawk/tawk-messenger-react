@@ -129,6 +129,14 @@ const TawkMessenger = forwardRef((props, ref) => {
 			return window.Tawk_API.onLoaded;
 		},
 
+		onBeforeLoaded : () => {
+			return window.Tawk_API.onBeforeLoaded;
+		},
+
+		widgetPosition : () => {
+			return window.Tawk_API.widgetPosition();
+		},
+
 
 		/**
 		 * API for setting a data on the widget
@@ -234,7 +242,11 @@ const TawkMessenger = forwardRef((props, ref) => {
 		window.addEventListener('tawkTagsUpdated', (data) => {
 			props.onTagsUpdated(data.detail);
 		});
-	};
+
+		window.addEventListener('tawkUnreadCountChanged', (data) => {
+			props.onUnreadCountChanged(data.detail);
+		});
+	}
 
 	return null;
 });
@@ -261,7 +273,8 @@ TawkMessenger.defaultProps = {
 	onChatSatisfaction : () => {},
 	onVisitorNameChanged : () => {},
 	onFileUpload : () => {},
-	onTagsUpdated : () => {}
+	onTagsUpdated : () => {},
+	onUnreadCountChanged : () => {}
 };
 
 
@@ -298,7 +311,8 @@ TawkMessenger.propTypes = {
 	onChatSatisfaction : PropTypes.func,
 	onVisitorNameChanged : PropTypes.func,
 	onFileUpload : PropTypes.func,
-	onTagsUpdated : PropTypes.func
+	onTagsUpdated : PropTypes.func,
+	onUnreadCountChanged : PropTypes.func
 };
 
 

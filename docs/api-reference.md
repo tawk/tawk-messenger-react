@@ -6,6 +6,8 @@ the methods below, please be sure to call a method after the embed code on your 
 
 Use the JavaScript API to manipulate the chat widget displayed on your website.
 
+<br/>
+
 ## Table of contents
 - [onLoad](#onload)
 - [onStatusChange](#onstatuschange)
@@ -26,6 +28,7 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 - [onVisitorNameChanged](#onvisitornamechanged)
 - [onFileUpload](#onfileupload)
 - [onTagsUpdated](#ontagsupdated)
+- [onUnreadCountChanged](#onunreadcountchanged)
 - [visitor](#visitor)
 - [maximize](#maximize)
 - [minimize](#minimize)
@@ -41,6 +44,9 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 - [isChatHidden](#ischathidden)
 - [isChatOngoing](#ischatongoing)
 - [isVisitorEngaged](#isvisitorengaged)
+- [onLoaded](#onloaded)
+- [onBeforeLoaded](#onbeforeloaded)
+- [widgetPosition](#widgetPosition)
 - [endChat](#endchat)
 - [setAttributes](#setattributes)
 - [addEvent](#addevent)
@@ -48,6 +54,8 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 - [removeTags](#removetags)
 - [secureMode](#securemode)
 - [customStyle](#customstyle)
+
+<br/>
 
 ## onLoad
 Callback function invoked right after the widget is rendered. This callback is not supported in
@@ -67,6 +75,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onStatusChange
 Callback function invoked when the page status changes. The function will receive the changed
@@ -88,6 +98,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onBeforeLoad
 Callback function invoked right when Tawk_API is ready to be used and before the widget is rendered.
 This callback is not supported in pop out chat window.
@@ -106,6 +118,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onChatMaximized
 Callback function invoked when the widget is maximized. This callback is not supported in pop out
@@ -126,6 +140,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onChatMinimized
 Callback function invoked when the widget is minimized. This callback is not supported in pop out
 chat window.
@@ -144,6 +160,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onChatHidden
 Callback function invoked when the widget is hidden. This callback is not supported in pop out chat
@@ -164,6 +182,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onChatStarted
 Callback function invoked when the widget is started.
 
@@ -181,6 +201,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onChatEnded
 Callback function invoked when the widget is ended. This callback is not supported in pop out chat
@@ -201,6 +223,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onPrechatSubmit
 Callback function invoked when the Pre-Chat Form is submitted. The submitted form data is passed to
 the function. This callback is not supported in pop out chat window.
@@ -219,6 +243,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onOfflineSubmit
 Callback function invoked when the Offline form is submitted. The submitted form data is passed to
@@ -240,6 +266,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onChatMessageVisitor
 Callback function invoked when message is sent by the visitor. The message is passed to the
 function. This callback is not supported in pop out chat window.
@@ -258,6 +286,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onChatMessageAgent
 Callback function invoked when message is sent by the agent. The message is passed to the function.
@@ -278,6 +308,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onChatMessageSystem
 Callback function invoked when message is sent by the system. The message is passed to the function.
 This callback is not supported in pop out chat window.
@@ -296,6 +328,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onAgentJoinChat
 Callback function invoked when an agent joins the chat. The data is passed to the function. Will
@@ -317,6 +351,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onAgentLeaveChat
 Callback function invoked when an agent leaves the chat. The data is passed to the function. Will
 contain {name : ”, id : ”}. This callback is not supported in pop out chat window.
@@ -335,6 +371,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onChatSatisfaction
 Callback function invoked when an agent leaves the chat. The satisfaction is passed to the function.
@@ -355,6 +393,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onVisitorNameChanged
 Callback function invoked when the visitor manually changes his name. The visitorName is passed to
 the function. This callback is not supported in pop out chat window.
@@ -373,6 +413,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## onFileUpload
 Callback function invoked when a file is uploaded. The link to the uploaded file is passed to the
@@ -393,6 +435,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## onTagsUpdated
 Callback function invoked when a tag is updated.
 
@@ -410,6 +454,115 @@ function App() {
     );
 }
 ```
+
+<br/>
+
+## onUnreadCountChanged
+Callback function invoked when active conversation unread count changed.
+
+```js
+function App() {
+    const onUnreadCountChanged = (count) => {
+        // place your code here
+    }
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onUnreadCountChanged={onUnreadCountChanged}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## onLoaded
+Returns a value (true or undefined) indicating when the plugin is ready.
+
+```js
+tawkMessengerRef.current.onLoaded();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        if (tawkMessengerRef.current.onLoaded()) {
+            // do something before loaded
+        }
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## onBeforeLoaded
+Returns a value (true of undefined) indicating when plugin is initialized.
+
+```js
+tawkMessengerRef.current.onBeforeLoaded();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        if (tawkMessengerRef.current.onBeforeLoaded()) {
+            // do something before loaded
+        }
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## widgetPosition
+Returns a string for current position of the widget.
+
+```js
+tawkMessengerRef.current.widgetPosition();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        if (tawkMessengerRef.current.widgetPosition() === 'br') {
+            // do something if the widget is at bottom right
+        }
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
 
 ## visitor
 Object used to set the visitor name and email. Do not place this object in a function, as the
@@ -449,6 +602,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## maximize
 Maximizes the chat widget.
 
@@ -473,6 +628,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## minimize
 Minimizes the chat widget.
@@ -499,6 +656,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## toggle
 Minimizes or Maximizes the chat widget based on the current state.
 
@@ -524,6 +683,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## popup
 Opens the chat widget as a pop out.
 
@@ -548,6 +709,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## getWindowType
 Returns the current widget type whether it’s inline or embed.
@@ -578,6 +741,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## showWidget
 Shows the chat widget.
 
@@ -602,6 +767,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## hideWidget
 Hide the chat widget.
@@ -628,6 +795,7 @@ function App() {
 }
 ```
 
+<br/>
 
 ## toggleVisibility
 Hides or Shows the chat widget based on the current visibility state.
@@ -653,6 +821,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## getStatus
 Returns the current page status (online, away or offline).
@@ -687,6 +857,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## isChatMaximized
 Returns a boolean value (true or false) indicating whether the chat widget is maximized.
 
@@ -713,6 +885,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## isChatMinimized
 Returns a boolean value (true or false) indicating whether the chat widget is minimized.
@@ -741,6 +915,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## isChatHidden
 Returns a boolean value (true or false) indicating whether the chat widget is hidden.
 
@@ -768,6 +944,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## isChatOngoing
 Returns a boolean value (true or false) indicating whether currently there is an ongoing chat.
 
@@ -794,6 +972,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## isVisitorEngaged
 Returns a boolean value (true or false) indicating whether the visitor is currently chatting or has
@@ -823,6 +1003,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## endChat
 Ends the current ongoing chat.
 
@@ -847,6 +1029,8 @@ function App() {
     );
 }
 ```
+
+<br/>
 
 ## setAttributes
 Set custom metadata regarding this chat/visitor.
@@ -914,6 +1098,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## addEvent
 Set a custom event to chat.
 This function takes in 3 values: event name, optional metadata and callback.
@@ -966,6 +1152,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## addTags
 Add tags to the chat.
 This function takes in two values; tags and callback.
@@ -1007,6 +1195,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## removeTags
 Remove tags from the chat.
 This function takes in two values: tags and callback.
@@ -1047,6 +1237,8 @@ function App() {
 }
 ```
 
+<br/>
+
 ## secureMode
 Secure method is to ensure the data you are sending is actually from you.
 
@@ -1064,15 +1256,18 @@ tawkMessengerRef.current.visitor({
 });
 ```
 
+<br/>
+
 ## customstyle
 Object used to update the widget styling. Currently only supports zIndex style. Do not place this
 object in a function, as the values need to be available before the widget script is downloaded.
 Setting or changing the values after the widget script has been downloaded will not update the
 widget’s style.
 
+### zIndex
 ```js
 <TawkMessengerReact
-    customStyle={{ zIndex : Integer|String }}/>
+    customStyle={{ zIndex : Integer | String }}/>
 
 // Example
 
@@ -1102,4 +1297,53 @@ function App() {
         </div>
     );
 }
+```
+
+<br/>
+
+### Visibility
+```js
+const customStyle = {
+    visibility : {
+        desktop : {
+            xOffset : String | Integer, // '20' || 20
+            yOffset : String | Integer,
+            position : '' // 'br', 'bl', 'cr', 'cl', 'tr', 'tl'
+        },
+
+        mobile : {
+            xOffset : String | Integer, // '20' || 20
+            yOffset : String | Integer,
+            position : '' // 'br', 'bl', 'cr', 'cl', 'tr', 'tl'
+        }
+    }
+};
+
+return (
+    <TawkMessengerReact
+        customStyle={ customStyle }/>
+);
+
+// Example
+
+const customStyle = {
+    visibility : {
+        desktop : {
+            xOffset : '15',
+            yOffset : '15',
+            position : 'cr'
+        },
+
+        mobile : {
+            xOffset : 15,
+            yOffset : 15,
+            position : 'bl'
+        }
+    }
+};
+
+return (
+    <TawkMessengerReact
+        customStyle={ customStyle }/>
+);
 ```
