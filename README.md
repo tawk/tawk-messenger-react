@@ -37,7 +37,7 @@ Using the API will need
 to use the **useRef** to access the object functions from the **tawk-messenger-react** component.
 
 ```js
-import TawkMessengerReact from 'tawk-messenger-react';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 function App() {
     return (
