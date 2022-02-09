@@ -28,7 +28,7 @@ yarn add @tawk.to/tawk-messenger-react
 <br/>
 
 ## Quickstart
-Import **tawk-messenger-react** into the App JavaScript file of your **src/** folder. The **propertyId** and **widgetId** will
+Import **tawk-messenger-react** into the App.js file of your **src/** folder. The **propertyId** and **widgetId** will
 be found on your tawk Dashboard.
 
 Log in to your account and go to **Administration > Channels > Chat Widget**.
@@ -73,7 +73,7 @@ Here is our guide for the [React.js integration](https://help.tawk.to/article/re
 
 **Where can I find more information and support?**
 
-Visit our [help center](https://help.tawk.to) or reach out in the chat on our [website](https://tawk.to).
+Visit our [help center](https://help.tawk.to) or reach out in the chat on our [website](https://tawk.to). Our agents are available to assist you 24/7.
 
 **Where can I submit a suggestion or report a bug?**
 
