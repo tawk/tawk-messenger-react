@@ -4,7 +4,7 @@
 /**
  * @param {Object} - Tawk widget required properties 
  */
-const loadScript = ({propertyId = '', widgetId = '', embedId = ''}) => {
+const loadScript = ({propertyId = '', widgetId = '', embedId = '', basePath = 'tawk.to'}) => {
 	if (embedId.length) {
 		/**
 		 * If the element with embedId as id we will create a new clement
@@ -21,7 +21,7 @@ const loadScript = ({propertyId = '', widgetId = '', embedId = ''}) => {
 
 	const script = document.createElement('script');
 	script.async = true;
-	script.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
+	script.src = `https://embed.${basePath}/${propertyId}/${widgetId}`;
 	script.charset = 'UTF-8';
 	script.setAttribute('crossorigin', '*');
 
