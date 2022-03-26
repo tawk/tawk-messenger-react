@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "tawk-messenger-react" : ["./index.d.ts"]
+    },
+    "esModuleInterop": true
+  },
+  "strictNullChecks": true
+}
