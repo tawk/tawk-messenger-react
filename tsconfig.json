@@ -1,9 +1,27 @@
 {
   "compilerOptions": {
-    "paths": {
-      "tawk-messenger-react" : ["./index.d.ts"]
-    },
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
-  "strictNullChecks": true
+  "strictNullChecks": true,
+  "include": [
+    "src"
+  ]
 }
