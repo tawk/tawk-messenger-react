@@ -284,6 +284,7 @@ TawkMessenger.propTypes = {
 	 */
 	propertyId : PropTypes.string.isRequired,
 	widgetId : PropTypes.string.isRequired,
+	embedId : PropTypes.string.isRequired,
 
 	/**
 	 * Custom style
