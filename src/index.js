@@ -44,7 +44,8 @@ const TawkMessenger = forwardRef((props, ref) => {
 		loadScript({
 			propertyId : props.propertyId,
 			widgetId : props.widgetId,
-			embedId : props.embedId
+			embedId : props.embedId,
+			basePath : props.basePath
 		});
 
 		/**
@@ -255,6 +256,8 @@ TawkMessenger.displayName = 'TawkMessenger';
 
 TawkMessenger.defaultProps = {
 	customStyle : null,
+	embedId : '',
+	basePath : 'tawk.to',
 	onLoad : () => {},
 	onStatusChange : () => {},
 	onBeforeLoad : () => {},
@@ -286,9 +289,11 @@ TawkMessenger.propTypes = {
 	widgetId : PropTypes.string.isRequired,
 
 	/**
-	 * Custom style
+	 * Optional properties
 	 */
 	customStyle : PropTypes.object,
+	embedId : PropTypes.string,
+	basePath : PropTypes.string,
 
 	/**
 	 * Callbacks
