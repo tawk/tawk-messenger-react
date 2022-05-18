@@ -1,6 +1,6 @@
 {
   "name": "tawk-messenger-react",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Official React plugin for Tawk messenger",
   "keywords": [
     "react",
@@ -34,17 +34,20 @@
     "lint": "eslint src/**/*.js"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "^5.0.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.1.1",
     "babel-eslint": "^10.1.0",
-    "eslint-plugin-jest": "^24.7.0",
-    "eslint-plugin-react": "^7.28.0",
-    "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3"
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-react": "^7.29.4"
   },
   "eslintConfig": {
     "extends": [
