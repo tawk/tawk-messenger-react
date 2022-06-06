@@ -11,7 +11,7 @@ import { loadScript } from './utils/widget';
 const TawkMessenger = forwardRef((props, ref) => {
 	useEffect(() => {
 		load();
-	});
+	}, []);
 
 	const load = () => {
 		if (!isValidString(props.propertyId)) {
@@ -247,7 +247,7 @@ const TawkMessenger = forwardRef((props, ref) => {
 		window.addEventListener('tawkUnreadCountChanged', (data) => {
 			props.onUnreadCountChanged(data.detail);
 		});
-	}
+	};
 
 	return null;
 });
