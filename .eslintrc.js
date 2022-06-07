@@ -35,7 +35,8 @@ module.exports = {
 		quotes : ['error', 'single'],
 		'arrow-parens' : ['error', 'always'],
 		'react/jsx-uses-react' : 'off',
-		'react/react-in-jsx-scope' : 'off'
+		'react/react-in-jsx-scope' : 'off',
+		'no-redeclare' : 'off'
 	},
 	settings : {
 		react : {
