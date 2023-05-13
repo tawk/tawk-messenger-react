@@ -1068,7 +1068,8 @@ tawkMessengerRef.current.visitor({
 ```
 
 ## switchWidget
-Disconnect the current widget connection and switch to another widget.
+Disconnect the current widget connection, logout if it has existing user login and switch to
+another widget.
 
 ```js
 tawkMessengerRef.current.switchWidget(options);
