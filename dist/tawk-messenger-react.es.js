@@ -161,8 +161,8 @@ const TawkMessenger = forwardRef((props, ref) => {
     widgetPosition: () => {
       return window.Tawk_API.widgetPosition();
     },
-    visitor: (data) => {
-      window.Tawk_API.visitor = data;
+    visitor: (data2) => {
+      window.Tawk_API.visitor = data2;
     },
     setAttributes: (attribute, callback) => {
       window.Tawk_API.setAttributes(attribute, callback);
@@ -175,6 +175,9 @@ const TawkMessenger = forwardRef((props, ref) => {
     },
     removeTags: (tags, callback) => {
       window.Tawk_API.removeTags(tags, callback);
+    },
+    switchWidget: (options, callback) => {
+      window.Tawk_API.switchWidget(data, callback);
     }
   }));
   const mapCallbacks = () => {
@@ -202,11 +205,11 @@ const TawkMessenger = forwardRef((props, ref) => {
     window.addEventListener("tawkChatEnded", () => {
       props.onChatEnded();
     });
-    window.addEventListener("tawkPrechatSubmit", (data) => {
-      props.onPrechatSubmit(data.detail);
+    window.addEventListener("tawkPrechatSubmit", (data2) => {
+      props.onPrechatSubmit(data2.detail);
     });
-    window.addEventListener("tawkOfflineSubmit", (data) => {
-      props.onOfflineSubmit(data.detail);
+    window.addEventListener("tawkOfflineSubmit", (data2) => {
+      props.onOfflineSubmit(data2.detail);
     });
     window.addEventListener("tawkChatMessageVisitor", (message) => {
       props.onChatMessageVisitor(message.detail);
@@ -217,11 +220,11 @@ const TawkMessenger = forwardRef((props, ref) => {
     window.addEventListener("tawkChatMessageSystem", (message) => {
       props.onChatMessageSystem(message.detail);
     });
-    window.addEventListener("tawkAgentJoinChat", (data) => {
-      props.onAgentJoinChat(data.detail);
+    window.addEventListener("tawkAgentJoinChat", (data2) => {
+      props.onAgentJoinChat(data2.detail);
     });
-    window.addEventListener("tawkAgentLeaveChat", (data) => {
-      props.onAgentLeaveChat(data.detail);
+    window.addEventListener("tawkAgentLeaveChat", (data2) => {
+      props.onAgentLeaveChat(data2.detail);
     });
     window.addEventListener("tawkChatSatisfaction", (satisfaction) => {
       props.onChatSatisfaction(satisfaction.detail);
@@ -232,11 +235,11 @@ const TawkMessenger = forwardRef((props, ref) => {
     window.addEventListener("tawkFileUpload", (link) => {
       props.onFileUpload(link.detail);
     });
-    window.addEventListener("tawkTagsUpdated", (data) => {
-      props.onTagsUpdated(data.detail);
+    window.addEventListener("tawkTagsUpdated", (data2) => {
+      props.onTagsUpdated(data2.detail);
     });
-    window.addEventListener("tawkUnreadCountChanged", (data) => {
-      props.onUnreadCountChanged(data.detail);
+    window.addEventListener("tawkUnreadCountChanged", (data2) => {
+      props.onUnreadCountChanged(data2.detail);
     });
   };
   return null;
