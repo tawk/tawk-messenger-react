@@ -13,7 +13,7 @@ import TawkMessengerReact from 'tawk-messenger-react';
 function App() {
     const tawkMessengerRef = useRef();
 
-    const handleMinimize () => {
+    const handleMinimize = () => {
         tawkMessengerRef.current.minimize();
     };
 
