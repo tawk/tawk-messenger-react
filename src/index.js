@@ -11,15 +11,15 @@ import { loadScript } from './utils/widget';
 const TawkMessenger = forwardRef((props, ref) => {
 	useEffect(() => {
 		load();
-	});
+	}, []);
 
 	const load = () => {
-		if (!isValidString(String, props.propertyId)) {
+		if (!isValidString(props.propertyId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'propertyId\' property in the plugin.');
 			return;
 		}
 	
-		if (!isValidString(String, props.widgetId)) {
+		if (!isValidString(props.widgetId)) {
 			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'widgetId\' property in the plugin.');
 			return;
 		}
@@ -36,13 +36,16 @@ const TawkMessenger = forwardRef((props, ref) => {
 		 * Set placeholder
 		 */
 		window.Tawk_API = window.Tawk_API || {};
+		window.Tawk_LoadStart = new Date();
 
 		/**
 		 * Inject the Tawk script
 		 */
 		loadScript({
 			propertyId : props.propertyId,
-			widgetId : props.widgetId
+			widgetId : props.widgetId,
+			embedId : props.embedId,
+			basePath : props.basePath
 		});
 
 		/**
@@ -125,6 +128,14 @@ const TawkMessenger = forwardRef((props, ref) => {
 
 		onLoaded : () => {
 			return window.Tawk_API.onLoaded;
+		},
+
+		onBeforeLoaded : () => {
+			return window.Tawk_API.onBeforeLoaded;
+		},
+
+		widgetPosition : () => {
+			return window.Tawk_API.widgetPosition();
 		},
 
 
@@ -236,6 +247,10 @@ const TawkMessenger = forwardRef((props, ref) => {
 		window.addEventListener('tawkTagsUpdated', (data) => {
 			props.onTagsUpdated(data.detail);
 		});
+
+		window.addEventListener('tawkUnreadCountChanged', (data) => {
+			props.onUnreadCountChanged(data.detail);
+		});
 	};
 
 	return null;
@@ -245,6 +260,8 @@ TawkMessenger.displayName = 'TawkMessenger';
 
 TawkMessenger.defaultProps = {
 	customStyle : null,
+	embedId : '',
+	basePath : 'tawk.to',
 	onLoad : () => {},
 	onStatusChange : () => {},
 	onBeforeLoad : () => {},
@@ -263,7 +280,8 @@ TawkMessenger.defaultProps = {
 	onChatSatisfaction : () => {},
 	onVisitorNameChanged : () => {},
 	onFileUpload : () => {},
-	onTagsUpdated : () => {}
+	onTagsUpdated : () => {},
+	onUnreadCountChanged : () => {}
 };
 
 
@@ -275,9 +293,11 @@ TawkMessenger.propTypes = {
 	widgetId : PropTypes.string.isRequired,
 
 	/**
-	 * Custom style
+	 * Optional properties
 	 */
 	customStyle : PropTypes.object,
+	embedId : PropTypes.string,
+	basePath : PropTypes.string,
 
 	/**
 	 * Callbacks
@@ -300,7 +320,8 @@ TawkMessenger.propTypes = {
 	onChatSatisfaction : PropTypes.func,
 	onVisitorNameChanged : PropTypes.func,
 	onFileUpload : PropTypes.func,
-	onTagsUpdated : PropTypes.func
+	onTagsUpdated : PropTypes.func,
+	onUnreadCountChanged : PropTypes.func
 };
 
 

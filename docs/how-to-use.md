@@ -8,7 +8,7 @@ variable that will hold the **useRef()** and pass it in **TawkMessengerReact** c
 
 ```js
 import { useRef } from 'react';
-import TawkMessengerReact from 'tawk-messenger-react';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 function App() {
     const tawkMessengerRef = useRef();

@@ -1,36 +1,42 @@
-<h1 align="center">
-    Notice: Still Under Development
-</h1>
-
-<br/><br/>
-
-# ![tawk-messenger-react-banner](/images/banner.jpg)
+<p align="center">
+    <img width="250"
+        src="./images/tawk-react-logo.png"
+        alt="Tawk React logo">
+</p>
 
 <br/>
 
 ## Features
-* Using Hooks
-* Documented and Self explanaining methods
+* Using React Hooks
+* Documented and self-explaining methods
 * Small size without any external libraries
-* All Javascript API are available
-* Maintained by [tawk.to](https://www.tawk.to/) team.
+* All Javascript API methods are available
+* Maintained by the [tawk.to](https://www.tawk.to/) team.
+
+<br/>
 
 ## Installation
-The plugin is available in node and yarn package managers.
+The plugins are available from the node and yarn package managers.
 ```bash
 # Node
-npm install tawk-messenger-react
+npm install @tawk.to/tawk-messenger-react
 
 # Yarn
-yarn add tawk-messenger-react
+yarn add @tawk.to/tawk-messenger-react
 ```
 
+<br/>
+
 ## Quickstart
-Import the **tawk-messenger-react** in your main component, The **propertyId** and **widgetId** 
-will be found on your tawk dashboard **Administration > Chat Widget**. Using the API will need
-to use the **useRef** to be able call the expose functions from the **tawk-messenger-react**.
+Import **tawk-messenger-react** into the App.js file of your **src/** folder. The **propertyId** and **widgetId** will
+be found on your tawk Dashboard.
+
+Log in to your account and go to **Administration > Channels > Chat Widget**.
+
+When using the API, you will need to use the **useRef** to access the object functions from the **tawk-messenger-react** component.
+
 ```js
-import TawkMessengerReact from 'tawk-messenger-react';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 function App() {
     return (
@@ -43,20 +49,32 @@ function App() {
 }
 ```
 
+<br/>
+
 ## Documentation
-This project includes a `docs` folder with more details on:
+This project includes a `docs` folder with more details on the following:
 1.  [How to Use](docs/how-to-use.md)
 1.  [API Reference](docs/api-reference.md)
 
-## Other JS frameworks plugin
+<br/>
+
+## Other JS frameworks we support
 - [Vue Js](https://github.com/tawk/tawk-messenger-vue)
-- [React Js](https://github.com/tawk/tawk-messenger-react)
 - [Angular Js](https://github.com/tawk/tawk-messenger-angular)
-- Ember Js
+- [Ember Js](https://github.com/tawk/tawk-messenger-ember)
+
+<br/>
 
 ## Frequently Asked Questions
 
-**Where you can approach us for suggestion or bug report?**
+**Do you have a knowledge base or article to support implementation?**
 
-You can mention us on [Twitter](https://twitter.com/tawktotawk) or in our
-[Website](https://www.tawk.to/) just message us.
+Here is our guide for the [React.js integration](https://help.tawk.to/article/react-js )
+
+**Where can I find more information and support?**
+
+Visit our [help center](https://help.tawk.to) or reach out in the chat on our [website](https://tawk.to). Our agents are available to assist you 24/7.
+
+**Where can I submit a suggestion or report a bug?**
+
+Check to see if the issue already exists. If not, open a new issue in the [Issues tab](https://github.com/tawk/tawk-messenger-vue/issues)
