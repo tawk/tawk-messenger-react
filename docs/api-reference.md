@@ -9,51 +9,58 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 <br/>
 
 ## Table of contents
-- [onLoad](#onload)
-- [onStatusChange](#onstatuschange)
-- [onBeforeLoad](#onbeforeload)
-- [onChatMaximized](#onchatmaximized)
-- [onChatMinimized](#onchatminimized)
-- [onChatHidden](#onchathidden)
-- [onChatStarted](#onchatstarted)
-- [onChatEnded](#onchatended)
-- [onPrechatSubmit](#onprechatsubmit)
-- [onOfflineSubmit](#onofflinesubmit)
-- [onChatMessageVisitor](#onchatmessagevisitor)
-- [onChatMessageAgent](#onchatmessageagent)
-- [onChatMessageSystem](#onchatmessagesystem)
-- [onAgentJoinChat](#onagentjoinchat)
-- [onAgentLeaveChat](#onagentleavechat)
-- [onChatSatisfaction](#onchatsatisfaction)
-- [onVisitorNameChanged](#onvisitornamechanged)
-- [onFileUpload](#onfileupload)
-- [onTagsUpdated](#ontagsupdated)
-- [onUnreadCountChanged](#onunreadcountchanged)
-- [visitor](#visitor)
-- [maximize](#maximize)
-- [minimize](#minimize)
-- [toggle](#toggle)
-- [popup](#popup)
-- [getWindowType](#getwindowtype)
-- [showWidget](#showwidget)
-- [hideWidget](#hidewidget)
-- [toggleVisibility](#togglevisibility)
-- [getStatus](#getstatus)
-- [isChatMaximized](#ischatmaximized)
-- [isChatMinimized](#ischatminimized)
-- [isChatHidden](#ischathidden)
-- [isChatOngoing](#ischatongoing)
-- [isVisitorEngaged](#isvisitorengaged)
-- [onLoaded](#onloaded)
-- [onBeforeLoaded](#onbeforeloaded)
-- [widgetPosition](#widgetPosition)
-- [endChat](#endchat)
-- [setAttributes](#setattributes)
-- [addEvent](#addevent)
-- [addTags](#addtags)
-- [removeTags](#removetags)
-- [secureMode](#securemode)
-- [customStyle](#customstyle)
+- [API Reference](#api-reference)
+  - [Table of contents](#table-of-contents)
+  - [onLoad](#onload)
+  - [onStatusChange](#onstatuschange)
+  - [onBeforeLoad](#onbeforeload)
+  - [onChatMaximized](#onchatmaximized)
+  - [onChatMinimized](#onchatminimized)
+  - [onChatHidden](#onchathidden)
+  - [onChatStarted](#onchatstarted)
+  - [onChatEnded](#onchatended)
+  - [onPrechatSubmit](#onprechatsubmit)
+  - [onOfflineSubmit](#onofflinesubmit)
+  - [onChatMessageVisitor](#onchatmessagevisitor)
+  - [onChatMessageAgent](#onchatmessageagent)
+  - [onChatMessageSystem](#onchatmessagesystem)
+  - [onAgentJoinChat](#onagentjoinchat)
+  - [onAgentLeaveChat](#onagentleavechat)
+  - [onChatSatisfaction](#onchatsatisfaction)
+  - [onVisitorNameChanged](#onvisitornamechanged)
+  - [onFileUpload](#onfileupload)
+  - [onTagsUpdated](#ontagsupdated)
+  - [onUnreadCountChanged](#onunreadcountchanged)
+  - [onLoaded](#onloaded)
+  - [onBeforeLoaded](#onbeforeloaded)
+  - [widgetPosition](#widgetposition)
+  - [visitor](#visitor)
+  - [autoStart](#autostart)
+  - [start](#start)
+  - [shutdown](#shutdown)
+  - [maximize](#maximize)
+  - [minimize](#minimize)
+  - [toggle](#toggle)
+  - [popup](#popup)
+  - [getWindowType](#getwindowtype)
+  - [showWidget](#showwidget)
+  - [hideWidget](#hidewidget)
+  - [toggleVisibility](#togglevisibility)
+  - [getStatus](#getstatus)
+  - [isChatMaximized](#ischatmaximized)
+  - [isChatMinimized](#ischatminimized)
+  - [isChatHidden](#ischathidden)
+  - [isChatOngoing](#ischatongoing)
+  - [isVisitorEngaged](#isvisitorengaged)
+  - [endChat](#endchat)
+  - [setAttributes](#setattributes)
+  - [addEvent](#addevent)
+  - [addTags](#addtags)
+  - [removeTags](#removetags)
+  - [secureMode](#securemode)
+  - [customstyle](#customstyle)
+    - [zIndex](#zindex)
+    - [Visibility](#visibility)
 
 <br/>
 
@@ -596,6 +603,86 @@ function App() {
         <div>
             <TawkMessengerReact
                 onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## autoStart
+If set to true, it will auto-start the Tawk socket connection for chat services. If set to false,
+you will need to manually call the start API. It will not register and connect to the dashboard
+if this is set to false.
+
+```js
+tawkMessengerRef.current.autoStart(false);
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const autoStartTawk = () => {
+        tawkMessengerRef.current.autoStart(false);
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## start
+Start the tawk socket connection.
+
+```js
+tawkMessengerRef.current.start();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const startTawk = () => {
+        tawkMessengerRef.current.start();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## shutdown
+End the tawk socket connection.
+
+```js
+tawkMessengerRef.current.shutdown();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const shutdownTawk = () => {
+        tawkMessengerRef.current.shutdown();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
                 ref={tawkMessengerRef}/>
         </div>
     );
