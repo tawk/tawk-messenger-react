@@ -62,6 +62,14 @@ const TawkMessenger = forwardRef((props, ref) => {
 		/**
 		 * API for calling an action on the widget
 		 */
+		start : () => { 
+			return window.Tawk_API.start();
+		},
+
+		shutdown : () => { 
+			return window.Tawk_API.shutdown();
+		},
+
 		maximize : () => { 
 			return window.Tawk_API.maximize();
 		},
@@ -142,6 +150,10 @@ const TawkMessenger = forwardRef((props, ref) => {
 		/**
 		 * API for setting a data on the widget
 		 */
+		autoStart : (enable) => {
+			window.Tawk_API.autoStart = enable;
+		},
+
 		visitor : (data) => {
 			window.Tawk_API.visitor = data;
 		},
