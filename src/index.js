@@ -45,7 +45,8 @@ const TawkMessenger = forwardRef((props, ref) => {
 			propertyId : props.propertyId,
 			widgetId : props.widgetId,
 			embedId : props.embedId,
-			basePath : props.basePath
+			basePath : props.basePath,
+			autoStart : props.autoStart
 		});
 
 		/**

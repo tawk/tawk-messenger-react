@@ -617,21 +617,15 @@ you will need to manually call the start API. It will not register and connect t
 if this is set to false.
 
 ```js
-tawkMessengerRef.current.autoStart(false);
-
-// Example
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 function App() {
-    const tawkMessengerRef = useRef();
-
-    const autoStartTawk = () => {
-        tawkMessengerRef.current.autoStart(false);
-    };
-
     return (
-        <div>
+        <div className="App">
             <TawkMessengerReact
-                ref={tawkMessengerRef}/>
+                propertyId="property_id"
+                widgetId="default"
+                autoStart={false}/>
         </div>
     );
 }
