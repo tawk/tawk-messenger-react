@@ -151,10 +151,6 @@ const TawkMessenger = forwardRef((props, ref) => {
 		/**
 		 * API for setting a data on the widget
 		 */
-		autoStart : (enable) => {
-			window.Tawk_API.autoStart = enable;
-		},
-
 		visitor : (data) => {
 			window.Tawk_API.visitor = data;
 		},
