@@ -19,7 +19,7 @@ const loadScript = ({propertyId = '', widgetId = '', embedId = '', basePath = 't
 		window.Tawk_API.embedded = embedId;
 	}
 
-	if (autoStart) {
+	if (!autoStart) {
 		window.Tawk_API.autoStart = autoStart;
 	}
 
