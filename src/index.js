@@ -45,7 +45,8 @@ const TawkMessenger = forwardRef((props, ref) => {
 			propertyId : props.propertyId,
 			widgetId : props.widgetId,
 			embedId : props.embedId,
-			basePath : props.basePath
+			basePath : props.basePath,
+			autoStart : props.autoStart
 		});
 
 		/**
@@ -62,6 +63,14 @@ const TawkMessenger = forwardRef((props, ref) => {
 		/**
 		 * API for calling an action on the widget
 		 */
+		start : () => { 
+			return window.Tawk_API.start();
+		},
+
+		shutdown : () => { 
+			return window.Tawk_API.shutdown();
+		},
+
 		maximize : () => { 
 			return window.Tawk_API.maximize();
 		},
