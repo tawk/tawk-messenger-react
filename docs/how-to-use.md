@@ -13,18 +13,18 @@ import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 function App() {
     const tawkMessengerRef = useRef();
 
-    const handleMinimize () => {
-        tawkMessengerRef.current.minimize();
+    const handleTawkMinimize () => {
+        tawkMessengerRef.current.tawkMinimize();
     };
 
     return (
         <div className="App">
-            <button onClick={handleMinimize}> Minimize the Chat </button>
+            <button onClick={handleTawkMinimize}> Minimize the Chat </button>
 
             <TawkMessengerReact
                 propertyId="property_id"
                 widgetId="default"
-                useRef={tawkMessengerRef}/>
+                ref={tawkMessengerRef}/>
         </div>
     );
 }
@@ -35,7 +35,7 @@ Using the API callbacks, pass a function as props on the callback you will used.
 
 ```js
 function App() {
-    const onLoad = () => {
+    const tawkOnLoad = () => {
         console.log('onLoad works!');
     };
 
@@ -44,7 +44,7 @@ function App() {
             <TawkMessengerReact
                 propertyId="property_id"
                 widgetId="default"
-                onLoad={onLoad}/>
+                tawkOnLoad={onLoad}/>
         </div>
     );
 }
