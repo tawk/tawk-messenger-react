@@ -9,68 +9,72 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 <br/>
 
 ## Table of contents
-- [onLoad](#onload)
-- [onStatusChange](#onstatuschange)
-- [onBeforeLoad](#onbeforeload)
-- [onChatMaximized](#onchatmaximized)
-- [onChatMinimized](#onchatminimized)
-- [onChatHidden](#onchathidden)
-- [onChatStarted](#onchatstarted)
-- [onChatEnded](#onchatended)
-- [onPrechatSubmit](#onprechatsubmit)
-- [onOfflineSubmit](#onofflinesubmit)
-- [onChatMessageVisitor](#onchatmessagevisitor)
-- [onChatMessageAgent](#onchatmessageagent)
-- [onChatMessageSystem](#onchatmessagesystem)
-- [onAgentJoinChat](#onagentjoinchat)
-- [onAgentLeaveChat](#onagentleavechat)
-- [onChatSatisfaction](#onchatsatisfaction)
-- [onVisitorNameChanged](#onvisitornamechanged)
-- [onFileUpload](#onfileupload)
-- [onTagsUpdated](#ontagsupdated)
-- [onUnreadCountChanged](#onunreadcountchanged)
-- [visitor](#visitor)
-- [maximize](#maximize)
-- [minimize](#minimize)
-- [toggle](#toggle)
-- [popup](#popup)
-- [getWindowType](#getwindowtype)
-- [showWidget](#showwidget)
-- [hideWidget](#hidewidget)
-- [toggleVisibility](#togglevisibility)
-- [getStatus](#getstatus)
-- [isChatMaximized](#ischatmaximized)
-- [isChatMinimized](#ischatminimized)
-- [isChatHidden](#ischathidden)
-- [isChatOngoing](#ischatongoing)
-- [isVisitorEngaged](#isvisitorengaged)
-- [onLoaded](#onloaded)
-- [onBeforeLoaded](#onbeforeloaded)
-- [widgetPosition](#widgetPosition)
-- [endChat](#endchat)
-- [setAttributes](#setattributes)
-- [addEvent](#addevent)
-- [addTags](#addtags)
-- [removeTags](#removetags)
-- [secureMode](#securemode)
-- [customStyle](#customstyle)
+- [API Reference](#api-reference)
+  - [Table of contents](#table-of-contents)
+  - [tawkOnLoad](#tawkonload)
+  - [tawkOnStatusChange](#tawkonstatuschange)
+  - [tawkOnBeforeLoad](#tawkonbeforeload)
+  - [tawkOnChatMaximized](#tawkonchatmaximized)
+  - [tawkOnChatMinimized](#tawkonchatminimized)
+  - [tawkOnChatHidden](#tawkonchathidden)
+  - [tawkOnChatStarted](#tawkonchatstarted)
+  - [tawkOnChatEnded](#tawkonchatended)
+  - [tawkOnPrechatSubmit](#tawkonprechatsubmit)
+  - [tawkOnOfflineSubmit](#tawkonofflinesubmit)
+  - [tawkOnChatMessageVisitor](#tawkonchatmessagevisitor)
+  - [tawkOnChatMessageAgent](#tawkonchatmessageagent)
+  - [tawkOnChatMessageSystem](#tawkonchatmessagesystem)
+  - [tawkOnAgentJoinChat](#tawkonagentjoinchat)
+  - [tawkOnAgentLeaveChat](#tawkonagentleavechat)
+  - [tawkOnChatSatisfaction](#tawkonchatsatisfaction)
+  - [tawkOnVisitorNameChanged](#tawkonvisitornamechanged)
+  - [tawkOnFileUpload](#tawkonfileupload)
+  - [tawkOnTagsUpdated](#tawkontagsupdated)
+  - [tawkOnUnreadCountChanged](#tawkonunreadcountchanged)
+  - [tawkOnLoaded](#tawkonloaded)
+  - [tawkOnBeforeLoaded](#tawkonbeforeloaded)
+  - [tawkWidgetPosition](#tawkwidgetposition)
+  - [tawkVisitor](#tawkvisitor)
+  - [tawkMaximize](#tawkmaximize)
+  - [tawkMinimize](#tawkminimize)
+  - [tawkToggle](#tawktoggle)
+  - [tawkPopup](#tawkpopup)
+  - [tawkGetWindowType](#tawkgetwindowtype)
+  - [tawkShowWidget](#tawkshowwidget)
+  - [tawkHideWidget](#tawkhidewidget)
+  - [tawkToggleVisibility](#tawktogglevisibility)
+  - [tawkGetStatus](#tawkgetstatus)
+  - [tawkIsChatMaximized](#tawkischatmaximized)
+  - [tawkIsChatMinimized](#tawkischatminimized)
+  - [tawkIsChatHidden](#tawkischathidden)
+  - [tawkIsChatOngoing](#tawkischatongoing)
+  - [tawkIsVisitorEngaged](#tawkisvisitorengaged)
+  - [tawkEndChat](#tawkendchat)
+  - [tawkSetAttributes](#tawksetattributes)
+  - [tawkAddEvent](#tawkaddevent)
+  - [tawkAddTags](#tawkaddtags)
+  - [tawkRemoveTags](#tawkremovetags)
+  - [secureMode](#securemode)
+  - [customstyle](#customstyle)
+    - [zIndex](#zindex)
+    - [Visibility](#visibility)
 
 <br/>
 
-## onLoad
+## tawkOnLoad
 Callback function invoked right after the widget is rendered. This callback is not supported in
 pop out chat window.
 
 ```js
 function App() {
-    const onLoad = () => {
+    const tawkOnLoad = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}/>
+                tawkOnLoad={tawkOnLoad}/>
         </div>
     );
 }
@@ -78,21 +82,21 @@ function App() {
 
 <br/>
 
-## onStatusChange
+## tawkOnStatusChange
 Callback function invoked when the page status changes. The function will receive the changed
 status which will be either online, away or offline. This callback is not supported in pop out
 chat window.
 
 ```js
 function App() {
-    const onStatusChange = (status) => {
+    const tawkOnStatusChange = (status) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onStatusChange={onStatusChange}/>
+                tawkOnStatusChange={tawkOnStatusChange}/>
         </div>
     );
 }
@@ -100,20 +104,20 @@ function App() {
 
 <br/>
 
-## onBeforeLoad
+## tawkOnBeforeLoad
 Callback function invoked right when Tawk_API is ready to be used and before the widget is rendered.
 This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onBeforeLoad = () => {
+    const tawkOnBeforeLoad = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onBeforeLoad={onBeforeLoad}/>
+                tawkOnBeforeLoad={tawkOnBeforeLoad}/>
         </div>
     );
 }
@@ -121,20 +125,20 @@ function App() {
 
 <br/>
 
-## onChatMaximized
+## tawkOnChatMaximized
 Callback function invoked when the widget is maximized. This callback is not supported in pop out
 chat window.
 
 ```js
 function App() {
-    const onChatMaximized = () => {
+    const tawkOnChatMaximized = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatMaximized={onChatMaximized}/>
+                tawkOnChatMaximized={tawkOnChatMaximized}/>
         </div>
     );
 }
@@ -142,20 +146,20 @@ function App() {
 
 <br/>
 
-## onChatMinimized
+## tawkOnChatMinimized
 Callback function invoked when the widget is minimized. This callback is not supported in pop out
 chat window.
 
 ```js
 function App() {
-    const onChatMinimized = () => {
+    const tawkOnChatMinimized = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatMinimized={onChatMinimized}/>
+                tawkOnChatMinimized={tawkOnChatMinimized}/>
         </div>
     );
 }
@@ -163,20 +167,20 @@ function App() {
 
 <br/>
 
-## onChatHidden
+## tawkOnChatHidden
 Callback function invoked when the widget is hidden. This callback is not supported in pop out chat
 window.
 
 ```js
 function App() {
-    const onChatHidden = () => {
+    const tawkOnChatHidden = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatHidden={onChatHidden}/>
+                tawkOnChatHidden={tawkOnChatHidden}/>
         </div>
     );
 }
@@ -184,19 +188,19 @@ function App() {
 
 <br/>
 
-## onChatStarted
+## tawkOnChatStarted
 Callback function invoked when the widget is started.
 
 ```js
 function App() {
-    const onChatStarted = () => {
+    const tawkOnChatStarted = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatStarted={onChatStarted}/>
+                tawkOnChatStarted={tawkOnChatStarted}/>
         </div>
     );
 }
@@ -204,20 +208,20 @@ function App() {
 
 <br/>
 
-## onChatEnded
+## tawkOnChatEnded
 Callback function invoked when the widget is ended. This callback is not supported in pop out chat
 window.
 
 ```js
 function App() {
-    const onChatEnded = () => {
+    const tawkOnChatEnded = () => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatEnded={onChatEnded}/>
+                tawkOnChatEnded={tawkOnChatEnded}/>
         </div>
     );
 }
@@ -225,20 +229,20 @@ function App() {
 
 <br/>
 
-## onPrechatSubmit
+## tawkOnPrechatSubmit
 Callback function invoked when the Pre-Chat Form is submitted. The submitted form data is passed to
 the function. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onPrechatSubmit = (data) => {
+    const tawkOnPrechatSubmit = (data) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onPrechatSubmit={onPrechatSubmit}/>
+                tawkOnPrechatSubmit={tawkOnPrechatSubmit}/>
         </div>
     );
 }
@@ -246,21 +250,21 @@ function App() {
 
 <br/>
 
-## onOfflineSubmit
+## tawkOnOfflineSubmit
 Callback function invoked when the Offline form is submitted. The submitted form data is passed to
 the function. Form data will contain {name : ”, email : ”, message : ”, questions : []}. This
 callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onOfflineSubmit = (data) => {
+    const tawkOnOfflineSubmit = (data) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onOfflineSubmit={onOfflineSubmit}/>
+                tawkOnOfflineSubmit={tawkOnOfflineSubmit}/>
         </div>
     );
 }
@@ -268,20 +272,20 @@ function App() {
 
 <br/>
 
-## onChatMessageVisitor
+## tawkOnChatMessageVisitor
 Callback function invoked when message is sent by the visitor. The message is passed to the
 function. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onChatMessageVisitor = (message) => {
+    const tawkOnChatMessageVisitor = (message) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatMessageVisitor={onChatMessageVisitor}/>
+                tawkOnChatMessageVisitor={tawkOnChatMessageVisitor}/>
         </div>
     );
 }
@@ -289,20 +293,20 @@ function App() {
 
 <br/>
 
-## onChatMessageAgent
+## tawkOnChatMessageAgent
 Callback function invoked when message is sent by the agent. The message is passed to the function.
 This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onChatMessageAgent = (message) => {
+    const tawkOnChatMessageAgent = (message) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatMessageAgent={onChatMessageAgent}/>
+                tawkOnChatMessageAgent={tawkOnChatMessageAgent}/>
         </div>
     );
 }
@@ -310,20 +314,20 @@ function App() {
 
 <br/>
 
-## onChatMessageSystem
+## tawkOnChatMessageSystem
 Callback function invoked when message is sent by the system. The message is passed to the function.
 This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onChatMessageSystem = (message) => {
+    const tawkOnChatMessageSystem = (message) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatMessageSystem={onChatMessageSystem}/>
+                tawkOnChatMessageSystem={tawkOnChatMessageSystem}/>
         </div>
     );
 }
@@ -331,21 +335,21 @@ function App() {
 
 <br/>
 
-## onAgentJoinChat
+## tawkOnAgentJoinChat
 Callback function invoked when an agent joins the chat. The data is passed to the function. Will
 contain {name : ”, position : ”, image : ”, id : ”}. This callback is not supported in pop out chat
 window.
 
 ```js
 function App() {
-    const onAgentJoinChat = (data) => {
+    const tawkOnAgentJoinChat = (data) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onAgentJoinChat={onAgentJoinChat}/>
+                tawkOnAgentJoinChat={tawkOnAgentJoinChat}/>
         </div>
     );
 }
@@ -353,20 +357,20 @@ function App() {
 
 <br/>
 
-## onAgentLeaveChat
+## tawkOnAgentLeaveChat
 Callback function invoked when an agent leaves the chat. The data is passed to the function. Will
 contain {name : ”, id : ”}. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onAgentLeaveChat = (data) => {
+    const tawkOnAgentLeaveChat = (data) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onAgentLeaveChat={onAgentLeaveChat}/>
+                tawkOnAgentLeaveChat={tawkOnAgentLeaveChat}/>
         </div>
     );
 }
@@ -374,20 +378,20 @@ function App() {
 
 <br/>
 
-## onChatSatisfaction
+## tawkOnChatSatisfaction
 Callback function invoked when an agent leaves the chat. The satisfaction is passed to the function.
 -1 = dislike | 0 = neutral | 1 = like. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onChatSatisfaction = (satisfaction) => {
+    const tawkOnChatSatisfaction = (satisfaction) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onChatSatisfaction={onChatSatisfaction}/>
+                tawkOnChatSatisfaction={tawkOnChatSatisfaction}/>
         </div>
     );
 }
@@ -395,20 +399,20 @@ function App() {
 
 <br/>
 
-## onVisitorNameChanged
+## tawkOnVisitorNameChanged
 Callback function invoked when the visitor manually changes his name. The visitorName is passed to
 the function. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onVisitorNameChanged = (visitorName) => {
+    const tawkOnVisitorNameChanged = (visitorName) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onVisitorNameChanged={onVisitorNameChanged}/>
+                tawkOnVisitorNameChanged={tawkOnVisitorNameChanged}/>
         </div>
     );
 }
@@ -416,20 +420,20 @@ function App() {
 
 <br/>
 
-## onFileUpload
+## tawkOnFileUpload
 Callback function invoked when a file is uploaded. The link to the uploaded file is passed to the
 function. This callback is not supported in pop out chat window.
 
 ```js
 function App() {
-    const onFileUpload = (link) => {
+    const tawkOnFileUpload = (link) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onFileUpload={onFileUpload}/>
+                tawkOnFileUpload={tawkOnFileUpload}/>
         </div>
     );
 }
@@ -437,19 +441,19 @@ function App() {
 
 <br/>
 
-## onTagsUpdated
+## tawkOnTagsUpdated
 Callback function invoked when a tag is updated.
 
 ```js
 function App() {
-    const onTagsUpdated = (data) => {
+    const tawkOnTagsUpdated = (data) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onTagsUpdated={onTagsUpdated}/>
+                tawkOnTagsUpdated={tawkOnTagsUpdated}/>
         </div>
     );
 }
@@ -457,19 +461,19 @@ function App() {
 
 <br/>
 
-## onUnreadCountChanged
+## tawkOnUnreadCountChanged
 Callback function invoked when active conversation unread count changed.
 
 ```js
 function App() {
-    const onUnreadCountChanged = (count) => {
+    const tawkOnUnreadCountChanged = (count) => {
         // place your code here
     }
 
     return (
         <div>
             <TawkMessengerReact
-                onUnreadCountChanged={onUnreadCountChanged}/>
+                tawkOnUnreadCountChanged={tawkOnUnreadCountChanged}/>
         </div>
     );
 }
@@ -477,19 +481,19 @@ function App() {
 
 <br/>
 
-## onLoaded
+## tawkOnLoaded
 Returns a value (true or undefined) indicating when the plugin is ready.
 
 ```js
-tawkMessengerRef.current.onLoaded();
+tawkMessengerRef.current.tawkOnLoaded();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.onLoaded()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkOnLoaded()) {
             // do something before loaded
         }
     };
@@ -497,7 +501,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -506,19 +510,19 @@ function App() {
 
 <br/>
 
-## onBeforeLoaded
+## tawkOnBeforeLoaded
 Returns a value (true of undefined) indicating when plugin is initialized.
 
 ```js
-tawkMessengerRef.current.onBeforeLoaded();
+tawkMessengerRef.current.tawkOnBeforeLoaded();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.onBeforeLoaded()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkOnBeforeLoaded()) {
             // do something before loaded
         }
     };
@@ -526,7 +530,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -535,19 +539,19 @@ function App() {
 
 <br/>
 
-## widgetPosition
+## tawkWidgetPosition
 Returns a string for current position of the widget.
 
 ```js
-tawkMessengerRef.current.widgetPosition();
+tawkMessengerRef.current.tawkWidgetPosition();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.widgetPosition() === 'br') {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkWidgetPosition() === 'br') {
             // do something if the widget is at bottom right
         }
     };
@@ -555,7 +559,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -564,7 +568,7 @@ function App() {
 
 <br/>
 
-## visitor
+## tawkVisitor
 Object used to set the visitor name and email. Do not place this object in a function, as the
 values need to be available before the widget script is downloaded.
 
@@ -575,7 +579,7 @@ If the name and email will not be available on load time (eg single page app, aj
 use the [setAttributes](#setAttributes) function instead.
 
 ```js
-tawkMessengerRef.current.visitor({
+tawkMessengerRef.current.tawkVisitor({
     name : 'name',
     email : 'email@email.com'
 });
@@ -585,8 +589,8 @@ tawkMessengerRef.current.visitor({
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.visitor({
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkVisitor({
             name : 'name',
             email : 'email@email.com'
         });
@@ -595,7 +599,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -604,25 +608,25 @@ function App() {
 
 <br/>
 
-## maximize
+## tawkMaximize
 Maximizes the chat widget.
 
 ```js
-tawkMessengerRef.current.maximize();
+tawkMessengerRef.current.tawkMaximize();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.maximize();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkMaximize();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -631,25 +635,25 @@ function App() {
 
 <br/>
 
-## minimize
+## tawkMinimize
 Minimizes the chat widget.
 
 ```js
-tawkMessengerRef.current.minimize();
+tawkMessengerRef.current.tawkMinimize();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.minimize();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkMinimize();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -658,25 +662,25 @@ function App() {
 
 <br/>
 
-## toggle
+## tawkToggle
 Minimizes or Maximizes the chat widget based on the current state.
 
 ```js
-tawkMessengerRef.current.toggle();
+tawkMessengerRef.current.tawkToggle();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.toggle();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkToggle();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -685,25 +689,25 @@ function App() {
 
 <br/>
 
-## popup
+## tawkPopup
 Opens the chat widget as a pop out.
 
 ```js
-tawkMessengerRef.current.popup();
+tawkMessengerRef.current.tawkPopup();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.popup();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkPopup();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -712,19 +716,19 @@ function App() {
 
 <br/>
 
-## getWindowType
+## tawkGetWindowType
 Returns the current widget type whether it’s inline or embed.
 
 ```js
-tawkMessengerRef.current.getWindowType();
+tawkMessengerRef.current.tawkGetWindowType();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.getWindowType() === 'inline') {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkGetWindowType() === 'inline') {
             // do something if it's inline
         } else {
             // do something if it's embed
@@ -734,7 +738,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -743,25 +747,25 @@ function App() {
 
 <br/>
 
-## showWidget
+## tawkShowWidget
 Shows the chat widget.
 
 ```js
-tawkMessengerRef.current.showWidget();
+tawkMessengerRef.current.tawkShowWidget();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.showWidget();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkShowWidget();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -770,25 +774,25 @@ function App() {
 
 <br/>
 
-## hideWidget
+## tawkHideWidget
 Hide the chat widget.
 
 ```js
-tawkMessengerRef.current.hideWidget();
+tawkMessengerRef.current.tawkHideWidget();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.hideWidget();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkHideWidget();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -797,25 +801,25 @@ function App() {
 
 <br/>
 
-## toggleVisibility
+## tawkToggleVisibility
 Hides or Shows the chat widget based on the current visibility state.
 
 ```js
-tawkMessengerRef.current.toggeVisibility();
+tawkMessengerRef.current.tawkToggeVisibility();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.toggeVisibility();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkToggeVisibility();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -824,19 +828,19 @@ function App() {
 
 <br/>
 
-## getStatus
+## tawkGetStatus
 Returns the current page status (online, away or offline).
 
 ```js
-tawkMessengerRef.current.getStatus();
+tawkMessengerRef.current.tawkGetStatus();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        const pageStatus = tawkMessengerRef.current.getStatus();
+    const tawkOnLoad = () => {
+        const pageStatus = tawkMessengerRef.current.tawkGetStatus();
 
         if (pageStatus === 'online') {
             // do something for online
@@ -850,7 +854,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -859,19 +863,19 @@ function App() {
 
 <br/>
 
-## isChatMaximized
+## tawkIsChatMaximized
 Returns a boolean value (true or false) indicating whether the chat widget is maximized.
 
 ```js
-tawkMessengerRef.current.isChatMaximized();
+tawkMessengerRef.current.tawkIsChatMaximized();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.isChatMaximized()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkIsChatMaximized()) {
             // do something if it's maximized
         }
     };
@@ -879,7 +883,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -888,19 +892,19 @@ function App() {
 
 <br/>
 
-## isChatMinimized
+## tawkIsChatMinimized
 Returns a boolean value (true or false) indicating whether the chat widget is minimized.
 
 ```js
-tawkMessengerRef.current.isChatMinimized();
+tawkMessengerRef.current.tawkIsChatMinimized();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.isChatMinimized()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkIsChatMinimized()) {
             // do something if it's minimized
         }
     };
@@ -908,7 +912,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -917,19 +921,19 @@ function App() {
 
 <br/>
 
-## isChatHidden
+## tawkIsChatHidden
 Returns a boolean value (true or false) indicating whether the chat widget is hidden.
 
 ```js
-tawkMessengerRef.current.isChatHidden();
+tawkMessengerRef.current.tawkIsChatHidden();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.isChatHidden()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkIsChatHidden()) {
             // do something if chat widget is hidden
         }
     };
@@ -937,7 +941,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -946,19 +950,19 @@ function App() {
 
 <br/>
 
-## isChatOngoing
+## tawkIsChatOngoing
 Returns a boolean value (true or false) indicating whether currently there is an ongoing chat.
 
 ```js
-tawkMessengerRef.current.isChatOngoing();
+tawkMessengerRef.current.tawkIsChatOngoing();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.isChatOngoing()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkIsChatOngoing()) {
             // do something if there's ongoing chat
         }
     };
@@ -966,7 +970,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -975,20 +979,20 @@ function App() {
 
 <br/>
 
-## isVisitorEngaged
+## tawkIsVisitorEngaged
 Returns a boolean value (true or false) indicating whether the visitor is currently chatting or has
 requested a chat.
 
 ```js
-tawkMessengerRef.current.isVisitorEngaged();
+tawkMessengerRef.current.tawkIsVisitorEngaged();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        if (tawkMessengerRef.current.isVisitorEngaged()) {
+    const tawkOnLoad = () => {
+        if (tawkMessengerRef.current.tawkIsVisitorEngaged()) {
             // do something if visitor engaged in chat
         }
     };
@@ -996,7 +1000,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1005,25 +1009,25 @@ function App() {
 
 <br/>
 
-## endChat
+## tawkEndChat
 Ends the current ongoing chat.
 
 ```js
-tawkMessengerRef.current.endChat();
+tawkMessengerRef.current.tawkEndChat();
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.endChat();
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkEndChat();
     };
 
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1032,7 +1036,7 @@ function App() {
 
 <br/>
 
-## setAttributes
+## tawkSetAttributes
 Set custom metadata regarding this chat/visitor.
 
 This function takes in two values: attribute and callback.
@@ -1062,15 +1066,15 @@ Error messages returned:
 1. CONTAINS_INVALID_VALUE: Custom value is empty or the total length is more than 255 characters
 
 ```js
-tawkMessengerRef.current.setAttributes(attributes, callback);
+tawkMessengerRef.current.tawkSetAttributes(attributes, callback);
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.setAttributes({
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkSetAttributes({
             id : 'A1234',
             store : 'Midvalley'
         }, function(error) {
@@ -1091,7 +1095,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1100,7 +1104,7 @@ function App() {
 
 <br/>
 
-## addEvent
+## tawkAddEvent
 Set a custom event to chat.
 This function takes in 3 values: event name, optional metadata and callback.
 
@@ -1112,15 +1116,15 @@ INVALID_EVENT_NAME, INVALID_ATTRIBUTES, ATTRIBUTE_LIMIT_EXCEEDED, CONTAINS_INVAL
 CONTAINS_INVALID_VALUE, SESSION_EXPIRED, SERVER_ERROR
 
 ```js
-tawkMessengerRef.current.addEvent(eventName, metaData, callback);
+tawkMessengerRef.current.tawkAddEvent(eventName, metaData, callback);
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.addEvent(
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkAddEvent(
             'requested-quotation',
             function(error) {
                 // do something if error
@@ -1129,7 +1133,7 @@ function App() {
 
         // Example with metadata
 
-        tawkMessengerRef.current.addEvent(
+        tawkMessengerRef.current.tawkAddEvent(
             'requested-quotation',
             {
                 sku : 'A0012',
@@ -1145,7 +1149,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1154,7 +1158,7 @@ function App() {
 
 <br/>
 
-## addTags
+## tawkAddTags
 Add tags to the chat.
 This function takes in two values; tags and callback.
 This is of the array data type.
@@ -1166,15 +1170,15 @@ The callback, which is a function, will be invoked to notify whether the save fa
 INVALID_TAGS, TAG_LIMIT_EXCEEDED, VERSION_CONFLICT, SESSION_EXPIRED, SERVER_ERROR
 
 ```js
-tawkMessengerRef.current.addTags(tags, callback);
+tawkMessengerRef.current.tawkAddTags(tags, callback);
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.addTags(
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkAddTags(
             [
                 'hello',
                 'world'
@@ -1188,7 +1192,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1197,7 +1201,7 @@ function App() {
 
 <br/>
 
-## removeTags
+## tawkRemoveTags
 Remove tags from the chat.
 This function takes in two values: tags and callback.
 This is of the array data type.
@@ -1208,15 +1212,15 @@ The callback, which is a function, will be invoked to notify whether the save fa
 INVALID_TAGS, TAG_LIMIT_EXCEEDED, SESSION_EXPIRED, SERVER_ERROR
 
 ```js
-tawkMessengerRef.current.removeTags(tags, callback);
+tawkMessengerRef.current.tawkRemoveTags(tags, callback);
 
 // Example
 
 function App() {
     const tawkMessengerRef = useRef();
 
-    const onLoad = () => {
-        tawkMessengerRef.current.removeTags(
+    const tawkOnLoad = () => {
+        tawkMessengerRef.current.tawkRemoveTags(
             [
                 'hello',
                 'world'
@@ -1230,7 +1234,7 @@ function App() {
     return (
         <div>
             <TawkMessengerReact
-                onLoad={onLoad}
+                tawkOnLoad={tawkOnLoad}
                 ref={tawkMessengerRef}/>
         </div>
     );
