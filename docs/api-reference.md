@@ -9,51 +9,58 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 <br/>
 
 ## Table of contents
-- [onLoad](#onload)
-- [onStatusChange](#onstatuschange)
-- [onBeforeLoad](#onbeforeload)
-- [onChatMaximized](#onchatmaximized)
-- [onChatMinimized](#onchatminimized)
-- [onChatHidden](#onchathidden)
-- [onChatStarted](#onchatstarted)
-- [onChatEnded](#onchatended)
-- [onPrechatSubmit](#onprechatsubmit)
-- [onOfflineSubmit](#onofflinesubmit)
-- [onChatMessageVisitor](#onchatmessagevisitor)
-- [onChatMessageAgent](#onchatmessageagent)
-- [onChatMessageSystem](#onchatmessagesystem)
-- [onAgentJoinChat](#onagentjoinchat)
-- [onAgentLeaveChat](#onagentleavechat)
-- [onChatSatisfaction](#onchatsatisfaction)
-- [onVisitorNameChanged](#onvisitornamechanged)
-- [onFileUpload](#onfileupload)
-- [onTagsUpdated](#ontagsupdated)
-- [onUnreadCountChanged](#onunreadcountchanged)
-- [visitor](#visitor)
-- [maximize](#maximize)
-- [minimize](#minimize)
-- [toggle](#toggle)
-- [popup](#popup)
-- [getWindowType](#getwindowtype)
-- [showWidget](#showwidget)
-- [hideWidget](#hidewidget)
-- [toggleVisibility](#togglevisibility)
-- [getStatus](#getstatus)
-- [isChatMaximized](#ischatmaximized)
-- [isChatMinimized](#ischatminimized)
-- [isChatHidden](#ischathidden)
-- [isChatOngoing](#ischatongoing)
-- [isVisitorEngaged](#isvisitorengaged)
-- [onLoaded](#onloaded)
-- [onBeforeLoaded](#onbeforeloaded)
-- [widgetPosition](#widgetPosition)
-- [endChat](#endchat)
-- [setAttributes](#setattributes)
-- [addEvent](#addevent)
-- [addTags](#addtags)
-- [removeTags](#removetags)
-- [secureMode](#securemode)
-- [customStyle](#customstyle)
+<<<<<<< HEAD
+- [API Reference](#api-reference)
+  - [Table of contents](#table-of-contents)
+  - [onLoad](#onload)
+  - [onStatusChange](#onstatuschange)
+  - [onBeforeLoad](#onbeforeload)
+  - [onChatMaximized](#onchatmaximized)
+  - [onChatMinimized](#onchatminimized)
+  - [onChatHidden](#onchathidden)
+  - [onChatStarted](#onchatstarted)
+  - [onChatEnded](#onchatended)
+  - [onPrechatSubmit](#onprechatsubmit)
+  - [onOfflineSubmit](#onofflinesubmit)
+  - [onChatMessageVisitor](#onchatmessagevisitor)
+  - [onChatMessageAgent](#onchatmessageagent)
+  - [onChatMessageSystem](#onchatmessagesystem)
+  - [onAgentJoinChat](#onagentjoinchat)
+  - [onAgentLeaveChat](#onagentleavechat)
+  - [onChatSatisfaction](#onchatsatisfaction)
+  - [onVisitorNameChanged](#onvisitornamechanged)
+  - [onFileUpload](#onfileupload)
+  - [onTagsUpdated](#ontagsupdated)
+  - [onUnreadCountChanged](#onunreadcountchanged)
+  - [onLoaded](#onloaded)
+  - [onBeforeLoaded](#onbeforeloaded)
+  - [widgetPosition](#widgetposition)
+  - [visitor](#visitor)
+  - [maximize](#maximize)
+  - [minimize](#minimize)
+  - [toggle](#toggle)
+  - [popup](#popup)
+  - [getWindowType](#getwindowtype)
+  - [showWidget](#showwidget)
+  - [hideWidget](#hidewidget)
+  - [toggleVisibility](#togglevisibility)
+  - [getStatus](#getstatus)
+  - [isChatMaximized](#ischatmaximized)
+  - [isChatMinimized](#ischatminimized)
+  - [isChatHidden](#ischathidden)
+  - [isChatOngoing](#ischatongoing)
+  - [isVisitorEngaged](#isvisitorengaged)
+  - [endChat](#endchat)
+  - [setAttributes](#setattributes)
+  - [addEvent](#addevent)
+  - [addTags](#addtags)
+  - [removeTags](#removetags)
+  - [secureMode](#securemode)
+  - [switchWidget](#switchwidget)
+  - [customstyle](#customstyle)
+    - [zIndex](#zindex)
+    - [Visibility](#visibility)
+>>>>>>> main
 
 <br/>
 
@@ -1256,7 +1263,36 @@ tawkMessengerRef.current.visitor({
 });
 ```
 
-<br/>
+## switchWidget
+Disconnect the current widget connection, logout if it has existing user login and switch to
+another widget.
+
+```js
+tawkMessengerRef.current.switchWidget(options);
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        tawkMessengerRef.current.switchWidget({
+            propertyId ; 'property_id',
+            widgetId : 'widget_id'
+        }, function() {
+            // do something
+        });
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
 
 ## customstyle
 Object used to update the widget styling. Currently only supports zIndex style. Do not place this
