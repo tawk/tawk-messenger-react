@@ -58,6 +58,7 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
   - [addTags](#addtags)
   - [removeTags](#removetags)
   - [secureMode](#securemode)
+  - [switchWidget](#switchwidget)
   - [customstyle](#customstyle)
     - [zIndex](#zindex)
     - [Visibility](#visibility)
@@ -1337,7 +1338,36 @@ tawkMessengerRef.current.visitor({
 });
 ```
 
-<br/>
+## switchWidget
+Disconnect the current widget connection, logout if it has existing user login and switch to
+another widget.
+
+```js
+tawkMessengerRef.current.switchWidget(options);
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        tawkMessengerRef.current.switchWidget({
+            propertyId ; 'property_id',
+            widgetId : 'widget_id'
+        }, function() {
+            // do something
+        });
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
 
 ## customstyle
 Object used to update the widget styling. Currently only supports zIndex style. Do not place this

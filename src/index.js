@@ -169,6 +169,10 @@ const TawkMessenger = forwardRef((props, ref) => {
 
 		removeTags : (tags, callback) => {
 			window.Tawk_API.removeTags(tags, callback);
+		},
+
+		switchWidget : (options, callback) => {
+			window.Tawk_API.switchWidget(data, callback);
 		}
 	}));
 
