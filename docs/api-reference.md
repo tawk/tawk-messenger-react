@@ -9,7 +9,6 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
 <br/>
 
 ## Table of contents
-<<<<<<< HEAD
 - [API Reference](#api-reference)
   - [Table of contents](#table-of-contents)
   - [onLoad](#onload)
@@ -36,6 +35,9 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
   - [onBeforeLoaded](#onbeforeloaded)
   - [widgetPosition](#widgetposition)
   - [visitor](#visitor)
+  - [autoStart](#autostart)
+  - [start](#start)
+  - [shutdown](#shutdown)
   - [maximize](#maximize)
   - [minimize](#minimize)
   - [toggle](#toggle)
@@ -60,7 +62,6 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
   - [customstyle](#customstyle)
     - [zIndex](#zindex)
     - [Visibility](#visibility)
->>>>>>> main
 
 <br/>
 
@@ -603,6 +604,80 @@ function App() {
         <div>
             <TawkMessengerReact
                 onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## autoStart
+If set to true, it will auto-start the Tawk socket connection for chat services. If set to false,
+you will need to manually call the start API. It will not register and connect to the dashboard
+if this is set to false.
+
+```js
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+
+function App() {
+    return (
+        <div className="App">
+            <TawkMessengerReact
+                propertyId="property_id"
+                widgetId="default"
+                autoStart={false}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## start
+Start the tawk socket connection.
+
+```js
+tawkMessengerRef.current.start();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const startTawk = () => {
+        tawkMessengerRef.current.start();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## shutdown
+End the tawk socket connection.
+
+```js
+tawkMessengerRef.current.shutdown();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const shutdownTawk = () => {
+        tawkMessengerRef.current.shutdown();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
                 ref={tawkMessengerRef}/>
         </div>
     );
