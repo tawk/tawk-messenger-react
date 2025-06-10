@@ -36,7 +36,7 @@ Using the API callbacks, pass a function as props on the callback you will used.
 ```js
 function App() {
     const tawkOnLoad = () => {
-        console.log('onLoad works!');
+        // Do something here
     };
 
     return (
