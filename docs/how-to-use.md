@@ -44,7 +44,7 @@ function App() {
             <TawkMessengerReact
                 propertyId="property_id"
                 widgetId="default"
-                tawkOnLoad={onLoad}/>
+                tawkOnLoad={tawkOnLoad}/>
         </div>
     );
 }
