@@ -883,7 +883,7 @@ function App() {
 Hides or Shows the chat widget based on the current visibility state.
 
 ```js
-tawkMessengerRef.current.tawkToggeVisibility();
+tawkMessengerRef.current.tawkToggleVisibility();
 
 // Example
 
@@ -891,7 +891,7 @@ function App() {
     const tawkMessengerRef = useRef();
 
     const tawkOnLoad = () => {
-        tawkMessengerRef.current.tawkToggeVisibility();
+        tawkMessengerRef.current.tawkToggleVisibility();
     };
 
     return (
