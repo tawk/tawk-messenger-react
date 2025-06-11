@@ -35,6 +35,9 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
   - [tawkOnBeforeLoaded](#tawkonbeforeloaded)
   - [tawkWidgetPosition](#tawkwidgetposition)
   - [tawkVisitor](#tawkvisitor)
+  - [autoStart](#autostart)
+  - [tawkStart](#tawkstart)
+  - [tawkShutdown](#tawkshutdown)
   - [tawkMaximize](#tawkmaximize)
   - [tawkMinimize](#tawkminimize)
   - [tawkToggle](#tawktoggle)
@@ -55,6 +58,7 @@ Use the JavaScript API to manipulate the chat widget displayed on your website.
   - [tawkAddTags](#tawkaddtags)
   - [tawkRemoveTags](#tawkremovetags)
   - [secureMode](#securemode)
+  - [switchWidget](#switchwidget)
   - [customstyle](#customstyle)
     - [zIndex](#zindex)
     - [Visibility](#visibility)
@@ -600,6 +604,80 @@ function App() {
         <div>
             <TawkMessengerReact
                 tawkOnLoad={tawkOnLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## autoStart
+If set to true, it will auto-start the Tawk socket connection for chat services. If set to false,
+you will need to manually call the start API. It will not register and connect to the dashboard
+if this is set to false.
+
+```js
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+
+function App() {
+    return (
+        <div className="App">
+            <TawkMessengerReact
+                propertyId="property_id"
+                widgetId="default"
+                autoStart={false}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## tawkStart
+Start the tawk socket connection.
+
+```js
+tawkMessengerRef.current.start();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const startTawk = () => {
+        tawkMessengerRef.current.start();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
+
+<br/>
+
+## tawkShutdown
+End the tawk socket connection.
+
+```js
+tawkMessengerRef.current.shutdown();
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const shutdownTawk = () => {
+        tawkMessengerRef.current.shutdown();
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
                 ref={tawkMessengerRef}/>
         </div>
     );
@@ -1260,7 +1338,36 @@ tawkMessengerRef.current.visitor({
 });
 ```
 
-<br/>
+## switchWidget
+Disconnect the current widget connection, logout if it has existing user login and switch to
+another widget.
+
+```js
+tawkMessengerRef.current.switchWidget(options);
+
+// Example
+
+function App() {
+    const tawkMessengerRef = useRef();
+
+    const onLoad = () => {
+        tawkMessengerRef.current.switchWidget({
+            propertyId ; 'property_id',
+            widgetId : 'widget_id'
+        }, function() {
+            // do something
+        });
+    };
+
+    return (
+        <div>
+            <TawkMessengerReact
+                onLoad={onLoad}
+                ref={tawkMessengerRef}/>
+        </div>
+    );
+}
+```
 
 ## customstyle
 Object used to update the widget styling. Currently only supports zIndex style. Do not place this
