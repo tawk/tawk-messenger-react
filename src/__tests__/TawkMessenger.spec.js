@@ -69,14 +69,14 @@ describe('Tawk-messenger plugin', () => {
 				);
 			});
 			
-			expect(typeof tawkMessengerRef.current.maximize === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.minimize === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.toggle === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.popup === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.showWidget === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.hideWidget === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.toggleVisibility === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.endChat === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkMaximize === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkMinimize === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkToggle === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkPopup === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkShowWidget === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkHideWidget === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkToggleVisibility === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkEndChat === 'function').toBe(true);
 		});
 
 		it('should set the getters functions', () => {
@@ -94,16 +94,16 @@ describe('Tawk-messenger plugin', () => {
 				);
 			});
 			
-			expect(typeof tawkMessengerRef.current.getWindowType === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.getStatus === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.isChatMaximized === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.isChatMinimized === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.isChatHidden === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.isChatOngoing === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.isVisitorEngaged === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.onLoaded === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.onBeforeLoaded === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.widgetPosition === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkGetWindowType === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkGetStatus === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkIsChatMaximized === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkIsChatMinimized === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkIsChatHidden === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkIsChatOngoing === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkIsVisitorEngaged === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkOnLoaded === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkOnBeforeLoaded === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkWidgetPosition === 'function').toBe(true);
 		});
 
 		it('should set the event functions', () => {
@@ -153,11 +153,11 @@ describe('Tawk-messenger plugin', () => {
 				);
 			});
 
-			expect(typeof tawkMessengerRef.current.visitor === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.setAttributes === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.addEvent === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.addTags === 'function').toBe(true);
-			expect(typeof tawkMessengerRef.current.removeTags === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkVisitor === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkSetAttributes === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkAddEvent === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkAddTags === 'function').toBe(true);
+			expect(typeof tawkMessengerRef.current.tawkRemoveTags === 'function').toBe(true);
 		});
 	});
 });

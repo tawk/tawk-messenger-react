@@ -34,8 +34,9 @@ describe('Install tawk-messenger-react', () => {
 			 * 1st error - PropType 'propertyId' is required
 			 * 2nd error - PropType 'widgetId' is required
 			 * 3rd error - Custom log from load()
+			 * 4th error - Custom log from tawk messenger
 			 */
-			expect(console.error).toHaveBeenCalledTimes(3);
+			expect(console.error).toHaveBeenCalledTimes(4);
 		});
 
 		it('when widgetId only is not defined', () => {
