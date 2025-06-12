@@ -1,6 +1,6 @@
 {
   "name": "@tawk.to/tawk-messenger-react",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Official React plugin for Tawk messenger",
   "keywords": [
     "react",
